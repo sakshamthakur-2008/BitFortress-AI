@@ -1,0 +1,399 @@
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.panel-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-panel h2 {
+  font-family: var(--font-condensed);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #00f7ff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Control Sections */
+.control-section {
+  background: rgba(11, 17, 32, 0.75);
+  border: 1px solid rgba(157, 78, 221, 0.25);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.control-section:hover {
+  border-color: rgba(0, 247, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 247, 255, 0.12);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.control-section h3 {
+  font-family: var(--font-condensed);
+  color: #00f7ff;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Control Groups */
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.control-group label {
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.control-group input,
+.control-group select,
+.control-group textarea {
+  background: rgba(7, 10, 18, 0.85);
+  border: 1px solid rgba(157, 78, 221, 0.3);
+  color: #f1f5f9;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  transition: all 0.25s ease;
+}
+
+.control-group input:focus,
+.control-group select:focus,
+.control-group textarea:focus {
+  outline: none;
+  border-color: #00f7ff;
+  box-shadow: 0 0 12px rgba(0, 247, 255, 0.3);
+}
+
+.control-group input::placeholder,
+.control-group textarea::placeholder {
+  color: rgba(136, 153, 170, 0.5);
+}
+
+.control-group input:focus,
+.control-group select:focus,
+.control-group textarea:focus {
+  border-color: rgba(100, 200, 255, 0.4);
+  outline: none;
+  box-shadow: 0 0 16px rgba(100, 200, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  background: linear-gradient(135deg, rgba(30, 40, 60, 0.8) 0%, rgba(20, 30, 50, 0.6) 100%);
+}
+
+.control-group input:disabled,
+.control-group select:disabled,
+.control-group textarea:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 14px;
+  border: 1.5px solid;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  text-align: center;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn {
+  font-family: var(--font-condensed);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba(0, 247, 255, 0.2) 0%, rgba(157, 78, 221, 0.2) 100%);
+  color: #00f7ff;
+  border-color: rgba(0, 247, 255, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 247, 255, 0.2);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(0, 247, 255, 0.3) 0%, rgba(157, 78, 221, 0.3) 100%);
+  border-color: #00f7ff;
+  box-shadow: 0 6px 22px rgba(0, 247, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background: rgba(0, 245, 155, 0.15);
+  color: #00f59b;
+  border-color: rgba(0, 245, 155, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 245, 155, 0.2);
+}
+
+.btn-success:hover:not(:disabled) {
+  background: rgba(0, 245, 155, 0.25);
+  border-color: #00f59b;
+  box-shadow: 0 6px 20px rgba(0, 245, 155, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: rgba(255, 0, 85, 0.15);
+  color: #ff3366;
+  border-color: rgba(255, 0, 85, 0.45);
+  box-shadow: 0 4px 14px rgba(255, 0, 85, 0.2);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: rgba(255, 0, 85, 0.25);
+  border-color: #ff0055;
+  box-shadow: 0 6px 20px rgba(255, 0, 85, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-warning {
+  background: rgba(255, 183, 3, 0.15);
+  color: #ffb703;
+  border-color: rgba(255, 183, 3, 0.45);
+  box-shadow: 0 4px 14px rgba(255, 183, 3, 0.2);
+}
+
+.btn-warning:hover:not(:disabled) {
+  background: rgba(255, 183, 3, 0.25);
+  border-color: #ffb703;
+  box-shadow: 0 6px 20px rgba(255, 183, 3, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-info {
+  background: rgba(157, 78, 221, 0.18);
+  color: #c77dff;
+  border-color: rgba(157, 78, 221, 0.45);
+  box-shadow: 0 4px 14px rgba(157, 78, 221, 0.2);
+}
+
+.btn-info:hover:not(:disabled) {
+  background: rgba(157, 78, 221, 0.3);
+  border-color: #c77dff;
+  box-shadow: 0 6px 20px rgba(157, 78, 221, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-demo {
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.35) 0%, rgba(0, 247, 255, 0.25) 100%);
+  color: #ffffff;
+  border-color: rgba(157, 78, 221, 0.6);
+  font-size: 13px;
+  padding: 12px 16px;
+  width: 100%;
+  font-weight: 700;
+  box-shadow: 0 6px 22px rgba(157, 78, 221, 0.25);
+}
+
+.btn-demo:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.5) 0%, rgba(0, 247, 255, 0.35) 100%);
+  border-color: #00f7ff;
+  box-shadow: 0 8px 30px rgba(0, 247, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Button Groups */
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.button-group.single {
+  grid-template-columns: 1fr;
+}
+
+/* Status Message */
+.status-message {
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 4px solid;
+  font-size: 12px;
+  font-weight: bold;
+  animation: slideIn 0.3s ease;
+}
+
+.status-message.success {
+  background: rgba(68, 255, 68, 0.1);
+  color: #44ff44;
+  border-left-color: #44ff44;
+}
+
+.status-message.error {
+  background: rgba(255, 68, 68, 0.1);
+  color: #ff4444;
+  border-left-color: #ff4444;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 10;
+}
+
+.loading-overlay .spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(0, 212, 255, 0.2);
+  border-top-color: #00d4ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-overlay p {
+  color: #aaa;
+  font-size: 12px;
+}
+
+/* Tips Section */
+.tips-section {
+  background: rgba(100, 200, 255, 0.05);
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 11px;
+}
+
+.tips-section h4 {
+  color: #64c8ff;
+  font-size: 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tips-section ul {
+  list-style: none;
+  color: #aaa;
+}
+
+.tips-section li {
+  margin-bottom: 6px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.tips-section li:before {
+  content: "▪ ";
+  position: absolute;
+  left: 0;
+  color: #64c8ff;
+}
+
+/* Scenario Description */
+.scenario-description {
+  font-size: 11px;
+  color: #888;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .button-group {
+    grid-template-columns: 1fr;
+  }
+
+  .control-group input,
+  .control-group select,
+  .control-group textarea {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 10px;
+  }
+}

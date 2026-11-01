@@ -1,0 +1,112 @@
+/* ============================================
+   BITFORTRESS - QUANTUM CYBER DESIGN SYSTEM
+   Featuring Barlow Condensed & Unique Bioluminescent Palette
+   ============================================ */
+
+:root {
+  /* Unique Quantum Color Tokens */
+  --bg-deep: #05070e;
+  --bg-base: #080d1a;
+  --bg-card: rgba(11, 17, 32, 0.78);
+  --bg-card-hover: rgba(16, 25, 48, 0.9);
+  --bg-elevated: rgba(22, 34, 64, 0.65);
+
+  /* High-Tech Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(157, 78, 221, 0.35);
+  --border-glow: rgba(0, 247, 255, 0.45);
+
+  /* Unique Bioluminescent Neon Accents */
+  --neon-cyan: #00f7ff;
+  --neon-cyan-glow: rgba(0, 247, 255, 0.5);
+  --quantum-purple: #9d4edd;
+  --quantum-purple-glow: rgba(157, 78, 221, 0.5);
+  --plasma-amber: #ffb703;
+  --plasma-amber-glow: rgba(255, 183, 3, 0.45);
+  --emerald-safe: #00f59b;
+  --emerald-safe-glow: rgba(0, 245, 155, 0.45);
+  --laser-rose: #ff0055;
+  --laser-rose-glow: rgba(255, 0, 85, 0.45);
+  --hyper-violet: #c77dff;
+
+  /* Condensed & High-Tech Typography */
+  --font-condensed: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-tech: 'Chakra Petch', -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(157, 78, 221, 0.16) 0%, transparent 45%),
+    radial-gradient(circle at 90% 15%, rgba(0, 247, 255, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(199, 125, 255, 0.08) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+  color: #f1f5f9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Condensed Font Headings & Branding */
+h1, h2, h3, h4, .brand-title, .condensed-text, .metric-title, .status-badge, .btn {
+  font-family: var(--font-condensed);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.brand-title {
+  font-family: var(--font-condensed);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.metric-value {
+  font-family: var(--font-tech);
+  letter-spacing: 0.02em;
+}
+
+code, pre, .mono-data {
+  font-family: var(--font-mono);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 7, 14, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(0, 247, 255, 0.4), rgba(157, 78, 221, 0.4));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(0, 247, 255, 0.8), rgba(157, 78, 221, 0.8));
+}
+
+::selection {
+  background: rgba(0, 247, 255, 0.35);
+  color: #ffffff;
+}
