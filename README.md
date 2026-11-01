@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🛡️ BitFortress AI
+<img src="frontend/public/bitfortress_logo.png" alt="BitFortress AI Logo" width="160"/>
+
+# BitFortress AI
 
 ### Fault-Tolerant Distributed Object Storage with AI Resilience Copilot
 
@@ -16,11 +18,11 @@
 
 ---
 
-## ✨ What is BitFortress AI?
+## What is BitFortress AI?
 
 BitFortress AI is a full-stack, interactive distributed storage system built to simulate and visualize how platforms like AWS S3, HDFS, or Ceph manage:
 
-- **Multi-node data replication** (3× replication factor across 9 nodes)
+- **Multi-node data replication** (3x replication factor across 9 nodes)
 - **Autonomous failure detection & self-healing**
 - **Bit-rot / silent data corruption via SHA-256 checksums**
 - **Live cluster health monitoring** with a real-time React dashboard
@@ -30,35 +32,34 @@ BitFortress AI is a full-stack, interactive distributed storage system built to 
 
 ---
 
-## 🖥️ Live Demo Architecture
+## Live Demo Architecture
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                    React Frontend (Port 3000)                  │
-│  ┌────────────┐ ┌─────────────┐ ┌──────────────────────────┐  │
-│  │  Cluster   │ │  Metrics    │ │  AI Copilot (Groq Cloud) │  │
-│  │  Topology  │ │  Dashboard  │ │  • Node diagnostics      │  │
-│  │  9 Nodes   │ │  Live Stats │ │  • Groq LLM Chat         │  │
-│  └────────────┘ └─────────────┘ │  • Auto-Heal / Chaos     │  │
-│                                  └──────────────────────────┘  │
-└────────────────────────┬─────────────────────────────────────-─┘
-                         │ REST API (CORS)
-┌────────────────────────▼─────────────────────────────────────-─┐
-│                 FastAPI Backend (Port 8000)                     │
-│  ┌─────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
-│  │StorageCluster│  │  StorageNode │  │  Repair & Rebalance  │  │
-│  │ Coordinator  │  │  9 Instances │  │  Engine              │  │
-│  └─────────────┘  └──────────────┘  └──────────────────────┘  │
-└────────────────────────────────────────────────────────────────┘
++--------------------------------------------------------------+
+|                React Frontend  (Port 3000)                   |
+|  +-------------+  +-------------+  +----------------------+ |
+|  |   Cluster   |  |   Metrics   |  |  AI Copilot          | |
+|  |   Topology  |  |   Dashboard |  |  Groq Cloud LLM      | |
+|  |   9 Nodes   |  |   Live Stats|  |  Auto-Heal / Chaos   | |
+|  +-------------+  +-------------+  +----------------------+ |
++------------------------+-------------------------------------+
+                         | REST API (CORS)
++------------------------v-------------------------------------+
+|               FastAPI Backend  (Port 8000)                   |
+|  +--------------+  +---------------+  +------------------+  |
+|  |StorageCluster|  | StorageNode   |  | Repair Engine    |  |
+|  | Coordinator  |  | 9 Instances   |  | & Rebalancer     |  |
+|  +--------------+  +---------------+  +------------------+  |
++--------------------------------------------------------------+
 ```
 
 ---
 
-## 🚀 Features
+## Features
 
 | Feature | Description |
 |---|---|
-| **9-Node Cluster Simulation** | Full in-memory distributed cluster with 3× replication |
+| **9-Node Cluster Simulation** | Full in-memory distributed cluster with 3x replication |
 | **Fault Injection** | Simulate node failures, recoveries, and data corruption on demand |
 | **AI Auto-Heal** | Autonomous replica repair with continuous background guard |
 | **Groq LLM Copilot** | Ask real-time questions about cluster health using Groq Cloud AI |
@@ -71,40 +72,45 @@ BitFortress AI is a full-stack, interactive distributed storage system built to 
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 BitFortress-AI/
-├── backend/                    # FastAPI Python backend
-│   ├── app.py                  # API routes & server entry point
-│   ├── cluster.py              # StorageCluster coordinator
-│   ├── node.py                 # StorageNode with replica logic
-│   ├── __init__.py
-│   └── requirements.txt        # Python dependencies
-│
-├── frontend/                   # React dashboard
-│   ├── src/
-│   │   ├── App.jsx             # Root component & cluster polling
-│   │   ├── AICopilot.jsx       # AI Copilot panel (Groq chat + diagnostics)
-│   │   ├── ClusterVisualization.jsx  # Interactive 9-node topology
-│   │   ├── MetricsDashboard.jsx      # Live metrics & charts
-│   │   ├── ControlPanel.jsx          # Node controls & actions
-│   │   ├── EventLog.jsx              # Chronological event feed
-│   │   ├── components/Icons.jsx      # SVG icon library
-│   │   └── services/
-│   │       ├── groqService.js        # Groq Cloud LLM integration
-│   │       └── aiClusterEngine.js    # Frontend AI engine
-│   ├── .env.example            # Environment variable template
-│   └── package.json
-│
-├── .env.example                # Root env template (safe to commit)
-├── .gitignore                  # Comprehensive ignore rules
-└── README.md
+|
++-- logo.svg                        # Project logo (SVG)
++-- .env.example                    # Root env template (safe to commit)
++-- .gitignore                      # Comprehensive ignore rules
++-- README.md
+|
++-- backend/                        # FastAPI Python backend
+|   +-- app.py                      # API routes & server entry point
+|   +-- cluster.py                  # StorageCluster coordinator
+|   +-- node.py                     # StorageNode with replica logic
+|   +-- __init__.py
+|   +-- requirements.txt            # Python dependencies
+|
++-- frontend/                       # React dashboard
+    +-- public/
+    |   +-- bitfortress_logo.png    # App logo (PNG)
+    |   +-- index.html
+    +-- src/
+    |   +-- App.jsx                 # Root component & cluster polling
+    |   +-- AICopilot.jsx           # AI Copilot panel (Groq chat + diagnostics)
+    |   +-- ClusterVisualization.jsx
+    |   +-- MetricsDashboard.jsx
+    |   +-- ControlPanel.jsx
+    |   +-- EventLog.jsx
+    |   +-- components/Icons.jsx    # SVG icon & logo library
+    |   +-- services/
+    |       +-- groqService.js      # Groq Cloud LLM integration
+    |       +-- aiClusterEngine.js  # Frontend AI engine
+    +-- .env.example
+    +-- package.json
 ```
 
 ---
 
-## 🛠️ Setup & Installation
+## Setup & Installation
 
 ### Prerequisites
 
@@ -153,22 +159,19 @@ npm install
 ### 4. Configure Environment Variables
 
 ```bash
-# From the project root:
-cp .env.example .env
-
-# OR from the frontend directory:
+# From the frontend directory:
 cp frontend/.env.example frontend/.env
 ```
 
-Then open `frontend/.env` and add your Groq API key:
+Open `frontend/.env` and add your Groq API key:
 
 ```env
 REACT_APP_GROQ_API_KEY=gsk_your_actual_groq_key_here
 ```
 
-> **Get a free Groq key** → [console.groq.com](https://console.groq.com) → API Keys → Create Key
+> **Get a free Groq key** at [console.groq.com](https://console.groq.com) → API Keys → Create Key
 >
-> ⚠️ **Never commit your `.env` file.** It is already listed in `.gitignore`.
+> **Never commit your `.env` file** — it is already listed in `.gitignore`.
 
 ---
 
@@ -188,16 +191,16 @@ cd frontend
 npm start
 ```
 
-- **Frontend Dashboard** → [http://localhost:3000](http://localhost:3000)
-- **Backend API Docs** → [http://localhost:8000/docs](http://localhost:8000/docs)
+- **Frontend Dashboard** — http://localhost:3000
+- **Backend API Docs** — http://localhost:8000/docs
 
 ---
 
-## 🔌 API Reference
+## API Reference
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/api/write` | Write an object (auto-replicated 3×) |
+| `POST` | `/api/write` | Write an object (auto-replicated 3x) |
 | `GET` | `/api/read/{object_id}` | Read object from any live replica |
 | `GET` | `/api/cluster/status` | Full cluster status & all node metrics |
 | `POST` | `/api/cluster/node/fail` | Simulate a node failure |
@@ -213,7 +216,7 @@ Full interactive docs at `http://localhost:8000/docs` (Swagger UI).
 
 ---
 
-## 🤖 AI Copilot (Groq LLM)
+## AI Copilot (Groq LLM)
 
 The AI Copilot panel uses **Groq Cloud** with the `qwen/qwen3.8-27b` model (with `openai/gpt-oss-120b` fallback) to provide:
 
@@ -226,29 +229,29 @@ The LLM receives live cluster context (node states, durability %, object counts,
 
 ---
 
-## 🔒 Security Notes
+## Security Notes
 
 | File | Status | Reason |
 |---|---|---|
-| `.env` | ❌ Never commit | Contains real API keys |
-| `frontend/.env` | ❌ Never commit | Contains `REACT_APP_GROQ_API_KEY` |
-| `.env.example` | ✅ Safe to commit | Template with placeholder values only |
-| `frontend/.env.example` | ✅ Safe to commit | Template with placeholder values only |
+| `.env` | Never commit | Contains real API keys |
+| `frontend/.env` | Never commit | Contains `REACT_APP_GROQ_API_KEY` |
+| `.env.example` | Safe to commit | Template with placeholder values only |
+| `frontend/.env.example` | Safe to commit | Template with placeholder values only |
 
 ---
 
-## 🏗️ How It Works
+## How It Works
 
 ### Data Replication
 
-1. Client writes data → backend picks a **primary node** at random
+1. Client writes data — backend picks a **primary node** at random
 2. Data is stored on primary with a **SHA-256 checksum**
-3. **2 additional replica copies** are spread across different nodes (3× total)
+3. **2 additional replica copies** are spread across different nodes (3x total)
 4. On read, any live node holding the object serves the request
 
 ### Fault Tolerance
 
-- With 3× replication across 9 nodes, the cluster survives **up to 2 simultaneous node failures** without data loss
+- With 3x replication across 9 nodes, the cluster survives **up to 2 simultaneous node failures** without data loss
 - The **durability metric** shows what % of objects still have their full replica count intact
 - **Auto-heal** detects degraded replicas and restores them from healthy copies
 
@@ -260,7 +263,7 @@ The LLM receives live cluster context (node states, durability %, object counts,
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feat/your-feature`
@@ -270,15 +273,17 @@ The LLM receives live cluster context (node states, durability %, object counts,
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
 
 ---
 
 <div align="center">
 
-Made with ❤️ by [Saksham Thakur](https://github.com/sakshamthakur-2008)
+<img src="logo.svg" alt="BitFortress Shield Logo" width="48"/>
+
+Made with care by [Saksham Thakur](https://github.com/sakshamthakur-2008)
 
 *BitFortress AI — Where data survives everything.*
 
