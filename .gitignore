@@ -71,3 +71,17 @@ coverage/
 htmlcov/
 .pytest_cache/
 .coverage
+
+# ── Local Workspace & Legacy Prototypes ─────────────────────
+boss.py
+worker.py
+run_all.py
+start_bitfortress.bat
+index.html
+metadata.json
+storage_node*/
+inde.html/
+vault/
+prog*
+import pandas as pd.py
+

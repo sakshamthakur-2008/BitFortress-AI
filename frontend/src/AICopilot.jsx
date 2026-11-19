@@ -8,7 +8,6 @@ import {
   BugIcon,
   ScaleIcon,
   BarChartIcon,
-  BookOpenIcon,
   ActivityIcon,
   SearchIcon,
   TriangleDangerIcon,
